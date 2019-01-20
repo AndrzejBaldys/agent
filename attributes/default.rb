@@ -1,0 +1,9 @@
+default['jenkins_agent']['user']              = 'agent'
+default['jenkins_agent']['working_directory'] = '/home/agent/jenkins'
+default['jenkins_agent']['version']           = '3.15'
+default['jenkins_agent']['master']            = 'http://jenkins-master.blds.org:8080'
+default['jenkins_agent']['name']              = 'java-build'
+default['jenkins_agent']['labels']            = 'java-build'
+default['jenkins_agent']['user_name']         = 'admin'
+default['jenkins_agent']['user_password']     = 'admin'
+default['jenkins_agent']['retries']           = 1

@@ -1,0 +1,14 @@
+[Unit]
+Description=Jenkins Agent Service
+
+[Service]
+User=<%= node['jenkins_agent']['user'] %>
+WorkingDirectory=<%= node['jenkins_agent']['working_directory'] %>
+ExecStart=/usr/bin/java -Xmx256m -jar swarm-client-<%= node['jenkins_agent']['version'] %>.jar -master <%= node['jenkins_agent']['master'] %> -name <%= node['jenkins_agent']['name'] %> -labels <%= node['jenkins_agent']['labels'] %> -username <%= node['jenkins_agent']['user_name'] %> -password <%= node['jenkins_agent']['user_password'] %> -retry <%= node['jenkins_agent']['retries'] %> -deleteExistingClients
+SuccessExitStatus=143
+TimeoutStopSec=10
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
