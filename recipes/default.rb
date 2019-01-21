@@ -9,7 +9,11 @@ suorce_path = "https://repo.jenkins-ci.org/releases/org/jenkins-ci/plugins/swarm
 source_file = "swarm-client-#{version}.jar"
 dest_dir    = node['jenkins_agent']['working_directory']
 
-directory dest_dir
+directory dest_dir do
+  owner 'agent'
+  group 'agent'
+  mode '0777'
+end
 
 remote_file "#{dest_dir}/#{source_file}" do
   source "#{suorce_path}/#{source_file}"
