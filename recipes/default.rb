@@ -31,5 +31,5 @@ service 'daemon-reload' do
 end
 
 service 'jenkinsagent' do
-  action [ :enable, :start ]
+  action %i[enable start]
 end
